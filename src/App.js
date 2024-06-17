@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
@@ -14,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     // Fetch questions from JSON file
-    fetch('/questions.json')
+    fetch(`${process.env.PUBLIC_URL}/questions.json`)
       .then(response => response.json())
       .then(data => setQuestions(data));
 
