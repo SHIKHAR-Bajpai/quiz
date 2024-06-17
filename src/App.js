@@ -5,19 +5,19 @@ const App = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes
+  const [timeLeft, setTimeLeft] = useState(600); // For 10 minutes
   const [quizStarted, setQuizStarted] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null); // Track selected option
-  const [quizCompleted, setQuizCompleted] = useState(false); // Track quiz completion
+  const [selectedOption, setSelectedOption] = useState(null); // Tracking selected option
+  const [quizCompleted, setQuizCompleted] = useState(false); // Tracking quiz completion
 
   useEffect(() => {
-    // Fetch questions from JSON file
+    // Taking questions from question.json
     fetch(`${process.env.PUBLIC_URL}/questions.json`)
       .then(response => response.json())
       .then(data => setQuestions(data));
 
-    // Fullscreen change event listener
+    // function for full screen
     const handleFullScreenChange = () => {
       setIsFullScreen(
         document.fullscreenElement ||
@@ -32,7 +32,7 @@ const App = () => {
     document.addEventListener('mozfullscreenchange', handleFullScreenChange);
     document.addEventListener('MSFullscreenChange', handleFullScreenChange);
 
-    // Load saved state from localStorage
+    // Loading data from localStorage
     const savedState = JSON.parse(localStorage.getItem('quizState'));
     if (savedState) {
       setCurrentQuestion(savedState.currentQuestion);
@@ -41,7 +41,7 @@ const App = () => {
       setQuizStarted(savedState.quizStarted);
     }
 
-    // Timer
+    // Funtion for Timer
     const timer = setInterval(() => {
       setTimeLeft(prevTime => {
         if (prevTime <= 1) {
@@ -63,34 +63,33 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Save state to localStorage if quiz is started
+    // Saving current state to localStorage if quiz is started then only
     if (quizStarted) {
       localStorage.setItem('quizState', JSON.stringify({ currentQuestion, score, timeLeft, quizStarted }));
     }
   }, [currentQuestion, score, timeLeft, quizStarted]);
 
   const handleAnswerOptionClick = (isCorrect, index) => {
-    setSelectedOption(index); // Set selected option
+    setSelectedOption(index); // selected option by user
     if (isCorrect) {
       setScore(score + 1);
     }
 
     const nextQuestion = currentQuestion + 1;
     setTimeout(() => {
-      setSelectedOption(null); // Reset selected option for the next question
+      setSelectedOption(null); // Resetting selected option for the next question
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
         handleQuizCompletion();
       }
-    }, 500); // Delay for user to see the selection
+    }, 500);
   };
 
   const handleQuizCompletion = () => {
     setQuizCompleted(true);
     setQuizStarted(false);
-    // Clear state and localStorage
-    localStorage.removeItem('quizState');
+    localStorage.removeItem('quizState'); // Clearing state and localStorage
   };
 
   const handleStartQuiz = () => {
@@ -101,8 +100,8 @@ const App = () => {
     }
   };
 
+  //Function for Clearing all local storage data and reloading the page
   const handleRestartQuiz = () => {
-    // Clear all localStorage data and reload the page
     localStorage.clear();
     window.location.reload();
   };
