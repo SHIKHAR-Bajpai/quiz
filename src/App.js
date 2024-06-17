@@ -101,6 +101,12 @@ const App = () => {
     }
   };
 
+  const handleRestartQuiz = () => {
+    // Clear all localStorage data and reload the page
+    localStorage.clear();
+    window.location.reload();
+  };
+
   const handleReturnToFullScreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
@@ -144,7 +150,7 @@ const App = () => {
       <div className="app">
         <h1>Quiz Completed!</h1>
         {renderQuizCompletion()}
-        <button onClick={handleStartQuiz}>Restart Quiz</button> {/* Button to restart the quiz */}
+        <button onClick={handleRestartQuiz}>Restart Quiz</button> {/* Button to reload the page and start the quiz */}
       </div>
     );
   }
