@@ -63,8 +63,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Save state to localStorage
-    localStorage.setItem('quizState', JSON.stringify({ currentQuestion, score, timeLeft, quizStarted }));
+    // Save state to localStorage if quiz is started
+    if (quizStarted) {
+      localStorage.setItem('quizState', JSON.stringify({ currentQuestion, score, timeLeft, quizStarted }));
+    }
   }, [currentQuestion, score, timeLeft, quizStarted]);
 
   const handleAnswerOptionClick = (isCorrect, index) => {
@@ -142,6 +144,7 @@ const App = () => {
       <div className="app">
         <h1>Quiz Completed!</h1>
         {renderQuizCompletion()}
+        <button onClick={handleStartQuiz}>Restart Quiz</button> {/* Button to restart the quiz */}
       </div>
     );
   }
