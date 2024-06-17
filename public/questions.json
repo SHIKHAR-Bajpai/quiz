@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the capital of India?",
+    "options": ["Delhi", "Mumbai", "Kolkata", "Chennai"],
+    "answer": "Delhi"
+  },
+  {
+    "question": "Which country hosted the 50th G7 leaders summit?",
+    "options": ["Italy", "France", "U.K.", "Canada"],
+    "answer": "Italy"
+  },
+  {
+    "question": "Which group of countries is hosting the current ICC Men's T20 World Cup 2024?",
+    "options": ["India and Sri Lanka", "Australia and New Zealand", "West Indies and USA", "England and South Africa"],
+    "answer": "West Indies and USA"
+  },
+  {
+    "question": "What is the largest desert in the world?",
+    "options": ["Sahara Desert", "Arabian Desert", "Antarctica", "Gobi Desert"],
+    "answer": "Antarctica"
+  },
+  {
+    "question": "What is '2' + '2'?",
+    "options": ["3", "4", "22", "8"],
+    "answer": "22"
+  },
+  {
+    "question": "Who is the CEO of Microsoft?",
+    "options": ["Tim Cook", "Mark Zuckerberg", "Satya Nadella", "Jeff Bezos"],
+    "answer": "Satya Nadella"
+  },
+  {
+    "question": "Recently, which IIT has been granted a patent for its cost-effective inverter?",
+    "options": ["IIT Patna", "IIT Madras", "IIT Kanpur", "IIT Bombay"],
+    "answer": "IIT Patna"
+  },
+  {
+    "question": "Dinesh Karthik, who recently announced his retirement, belongs to which sports?",
+    "options": ["Cricket", "Football", "Basketball", "Hockey"],
+    "answer": "Cricket"
+  },
+  {
+    "question": "Which day is celebrated as ‘National Technology Day’ every year?",
+    "options": ["10 May", "11 May", "12 May", "13 May"],
+    "answer": "11 May"
+  },
+  {
+    "question": "Which country recently unveiled the world’s first 6G device?",
+    "options": ["Japan", "China", "Russia", "India"],
+    "answer": "Japan"
+  }
+]
